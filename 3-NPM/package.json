@@ -1,0 +1,16 @@
+{
+  "name": "npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Ciro Batista da Silva",
+  "license": "MIT",
+  "dependencies": {
+    "cfonts": "^3.1.0",
+    "moment": "^2.29.3"
+  }
+}
