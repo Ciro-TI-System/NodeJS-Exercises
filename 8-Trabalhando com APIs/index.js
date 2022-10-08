@@ -8,7 +8,7 @@ app.listen('3000')
 app.use(express.json())
 
 //Variable
-let author = "Ciro"
+//let author = "Ciro"
 
 //GET
 //app.route('/').get((req, res) => res.send('Hello, '))
@@ -19,9 +19,14 @@ let author = "Ciro"
 //app.route('/').post((req, res) => res.send(req.body))
 
 //PUT
-app.route('/').get((req, res) => res.send(author))
+//app.route('/').get((req, res) => res.send(author))
 
-app.route('/').put((req, res) => {
-  author = req.body.author
-  res.send(author)
+//app.route('/').put((req, res) => {
+//  author = req.body.author
+//  res.send(author)
+//})
+
+//DELETE
+app.route('/:identificador').delete((req, res) => {
+  res.send(req.params.identificador)
 })
