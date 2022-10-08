@@ -7,11 +7,16 @@ app.listen('3000')
 //Middleware
 app.use(express.json())
 
+//ROUTE Params - ('ROUTE' can be accepted by GET method).
+app.route('/').get((req, res) => res.send("Escreva um nome na rota!"))
+app.route('/:variavel').get((req, res) => res.send(req.params.variavel))
+app.route('/identidade/:nome').get((req, res) => res.send(req.params.nome))
+
 //BODY Params - ('BODY' can be accepted by PUT, POST and PATCH method).
-app.route('/').post((req, res) => {
-  const { nome, cidade } = req.body
-  res.send(`Meu nome é ${nome} e minha cidade é ${cidade}.`)
-})
+//app.route('/').post((req, res) => {
+//  const { nome, cidade } = req.body
+//  res.send(`Meu nome é ${nome} e minha cidade é ${cidade}.`)
+//})
 
 //Variable
 //let author = "Ciro"
