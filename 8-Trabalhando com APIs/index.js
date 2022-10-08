@@ -1,4 +1,5 @@
 const express = require('express')
+const axios = require('axios')
 
 const app = express()
 
@@ -7,9 +8,16 @@ app.listen('3000')
 //Middleware
 app.use(express.json())
 
+app.route('/').get((req, res) => {
+  axios.get('https://api.github.com/users/Ciro-TI-System')
+    //.then(result => res.send("<img src='" + result.data.avatar_url + "'/>"))
+    .then(result => res.send(`<img src="${result.data.avatar_url}"/>`))//Template String
+    .catch(error => console.log(error))
+})
+
 //QUERY Params - ('QUERY' can be accepted by GET method).
-app.route('/').get((req, res) => res.send(req.query.nome))
-app.route('/about/user').get((req, res) => res.send(req.query))
+//app.route('/').get((req, res) => res.send(req.query.nome))
+//app.route('/about/user').get((req, res) => res.send(req.query))
 
 
 //ROUTE Params - ('ROUTE' can be accepted by GET method).
