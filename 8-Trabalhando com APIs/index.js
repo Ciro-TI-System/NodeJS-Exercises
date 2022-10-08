@@ -7,6 +7,12 @@ app.listen('3000')
 //Middleware
 app.use(express.json())
 
+//BODY Params - ('BODY' can be accepted by PUT, POST and PATCH method).
+app.route('/').post((req, res) => {
+  const { nome, cidade } = req.body
+  res.send(`Meu nome é ${nome} e minha cidade é ${cidade}.`)
+})
+
 //Variable
 //let author = "Ciro"
 
@@ -27,6 +33,7 @@ app.use(express.json())
 //})
 
 //DELETE
-app.route('/:identificador').delete((req, res) => {
-  res.send(req.params.identificador)
-})
+//app.route('/:identificador').delete((req, res) => {
+//  res.send(req.params.identificador)
+//})
+
