@@ -18,18 +18,39 @@ function addNewUser(newUser) {
     .catch(error => console.error(error));
 }
 
+function getUser() {
+  axios.get(`${url}/3`)
+    .then(response => {
+      const data = response.data
+
+      userAvatar.src = data.avatar
+      userName.textContent = data.name
+      userId.textContent = data.id
+      userCity.textContent = data.city
+    })
+    .catch(error => console.log(error))
+}
+
 //calls
 getUsers()
-//getUser()
- addNewUser({
-   name: "Olivia Zars",
-   avatar: "https://picsum.photos/200/300",
-   city: "Rio do Sul"
- })
+getUser()
+
+/*----------------------------------------------------------------------------*/
+
+// addNewUser({
+//   name: "Olivia Zars",
+//   avatar: "https://picsum.photos/200/300",
+//   city: "Rio do Sul"
+// })
+
+/*----------------------------------------------------------------------------*/
 
 // updateUser({
 //   name: "Marcelo Calvis",
-//   avatar: "http://lorempixel.com/400/200",
+//   avatar: "https://picsum.photos/200/300",
 //   city: "Recife"
 // }, 3)
+
+/*----------------------------------------------------------------------------*/
+
 // deleteUser(2)
