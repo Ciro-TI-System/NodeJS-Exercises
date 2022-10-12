@@ -1,5 +1,6 @@
 const url = "http://localhost:5500/api"
 
+//GET
 function getUsers() {
   axios.get(url)
     .then(response => {
@@ -9,6 +10,7 @@ function getUsers() {
     .catch(error => console.log(error))
 }
 
+//POST
 function addNewUser(newUser) {
   axios.post(url, newUser)
     .then(response => {
@@ -18,6 +20,7 @@ function addNewUser(newUser) {
     .catch(error => console.error(error));
 }
 
+//GET with parameters
 function getUser() {
   axios.get(`${url}/2`)
     .then(response => {
@@ -31,6 +34,7 @@ function getUser() {
     .catch(error => console.log(error))
 }
 
+//PUT
 function updateUser(user, id) {
   axios.put(`${url}/${id}`, user)
     .then(response => {
@@ -39,6 +43,18 @@ function updateUser(user, id) {
     })
     .catch(error => console.error(error));
 }
+
+//DELETE
+function deleteUser(id) {
+  axios.delete(`${url}/${id}`)
+    .then(response => {
+      alert(JSON.stringify(response.data))
+      getUsers()
+    })
+    .catch(error => console.error(error));
+}
+
+/*----------------------------------------------------------------------------*/
 
 //calls
 getUsers()
@@ -62,4 +78,4 @@ getUser()
 
 /*----------------------------------------------------------------------------*/
 
-// deleteUser(2)
+deleteUser(2)
