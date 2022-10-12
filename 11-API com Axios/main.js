@@ -9,14 +9,24 @@ function getUsers() {
     .catch(error => console.log(error))
 }
 
+function addNewUser(newUser) {
+  axios.post(url, newUser)
+    .then(response => {
+      alert(JSON.stringify(response.data))
+      getUsers()
+    })
+    .catch(error => console.error(error));
+}
+
 //calls
 getUsers()
 //getUser()
-// addNewUser({
-//   name: "Olivia Zars",
-//   avatar: "http://lorempixel.com/400/200",
-//   city: "Rio do Sul"
-// })
+ addNewUser({
+   name: "Olivia Zars",
+   avatar: "https://picsum.photos/200/300",
+   city: "Rio do Sul"
+ })
+
 // updateUser({
 //   name: "Marcelo Calvis",
 //   avatar: "http://lorempixel.com/400/200",
