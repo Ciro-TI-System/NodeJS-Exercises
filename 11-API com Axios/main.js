@@ -22,7 +22,7 @@ function addNewUser(newUser) {
 
 //GET with parameters
 function getUser() {
-  axios.get(`${url}/2`)
+  axios.get(`${url}/1`)
     .then(response => {
       const data = response.data
 
@@ -78,4 +78,4 @@ getUser()
 
 /*----------------------------------------------------------------------------*/
 
-deleteUser(2)
+//deleteUser(2)
